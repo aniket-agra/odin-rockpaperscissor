@@ -8,11 +8,19 @@ function getComputerChoice() {
         return "Scissors";
 }
 
+function capitalize(text) {
+    return ((text.charAt(0).toUpperCase()) + text.substring(1));
+}
+
 function playRound(playerSelection, computerSelection) {
     // get value of player selection
     let lowerPlayerSelection = playerSelection.toLowerCase();
+    // update player selection for printing
+    playerSelection = capitalize(lowerPlayerSelection);
     // get value of computer selection
     let lowerComputerSelection = computerSelection.toLowerCase();
+    // update computer selection for printing
+    computerSelection = capitalize(lowerComputerSelection);
     // if both equal return draw
     if (lowerPlayerSelection === lowerComputerSelection)
         return `You draw! ${playerSelection} draws with ${computerSelection}`;
