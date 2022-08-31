@@ -23,18 +23,48 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = capitalize(lowerComputerSelection);
     // if both equal return draw
     if (lowerPlayerSelection === lowerComputerSelection)
-        return `You draw! ${playerSelection} draws with ${computerSelection}`;
+        return `You Draw! ${playerSelection} draws with ${computerSelection}`;
     // else check if player loses or wins
         // for each choice of player, player either loses or wins
     else {
         if (lowerPlayerSelection === "rock" && lowerComputerSelection === "paper")
-            return `You lose! ${playerSelection} loses over ${computerSelection}`;
+            return `You Lose! ${playerSelection} loses over ${computerSelection}`;
         if (lowerPlayerSelection === "paper" && lowerComputerSelection === "scissors")
-            return `You lose! ${playerSelection} loses over ${computerSelection}`;    
+            return `You Lose! ${playerSelection} loses over ${computerSelection}`;    
         if ((lowerPlayerSelection === "scissors" || lowerPlayerSelection === "scissor") && 
             lowerComputerSelection === "rock")
-            return `You lose! ${playerSelection} loses over ${computerSelection}`;    
+            return `You Lose! ${playerSelection} loses over ${computerSelection}`;    
     }
     // return result
-    return `You win! ${playerSelection} wins over ${computerSelection}`;
+    return `You Win! ${playerSelection} wins over ${computerSelection}`;
+}
+
+function game(numGames = 5) {
+    // plays a game of numGames (default: 5) rounds and keeps score
+    // store player score and computer score in a variable 
+    // store both since there's a possibility of draws
+    let playerScore = 0;
+    let computerScore = 0;
+    // run a round displaying winner for each round
+        // accept player input for each round
+    for (let i = 0; i < numGames; i++) {
+        let playerSelection = prompt("Enter your call: ");
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        // if player wins increment score, if player loses increment computer score
+        if (result.substring(4, 7) === "Win")
+            playerScore += 1;
+        if (result.substring(4, 7) === "Los")
+            computerScore += 1;
+    }
+    // return whether player wins or loses overall 
+    if (playerScore > computerScore)
+        console.log(`You Won the game ${playerScore} - ${computerScore}!`);
+    else {
+        if (playerScore < computerScore)
+            console.log(`You Lost the game ${playerScore} - ${computerScore}!`);
+        else
+            console.log (`It's a draw ${playerScore} - ${computerScore}!`);
+    }
 }
