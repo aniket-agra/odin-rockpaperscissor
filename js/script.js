@@ -83,7 +83,11 @@ startButton.addEventListener('click', function (e) {
     computerScore.textContent = cScore;
 });
 // listen for clicks on each of rock/paper/scissors buttons
-
-
+const playButtons = document.querySelectorAll(".buttons > *");
+for (let i = 0; i < playButtons.length; i++) {
+    playButtons[i].addEventListener('click', function (e) {
+        if (pScore !== 0 && cScore !== 0)   return;
+    });
+}
 // on click, get choice for computer and play round with the two choices
 // increment score based on result 
