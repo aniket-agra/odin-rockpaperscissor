@@ -68,3 +68,22 @@ function game(numGames = 5) {
             console.log (`It's a draw ${playerScore} - ${computerScore}!`);
     }
 }
+
+// listen for click on start button 
+const startButton = document.querySelector("button#start");
+const playerScore = document.querySelector("#player .score");
+const computerScore = document.querySelector("#computer .score");
+let pScore;
+let cScore;
+startButton.addEventListener('click', function (e) {
+    // on click - set scores of player and computer to zero - makes start a reset button
+    pScore = 0;
+    cScore = 0;
+    playerScore.textContent = pScore;
+    computerScore.textContent = cScore;
+});
+// listen for clicks on each of rock/paper/scissors buttons
+
+
+// on click, get choice for computer and play round with the two choices
+// increment score based on result 
