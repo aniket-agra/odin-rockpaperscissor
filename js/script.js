@@ -87,6 +87,11 @@ const playButtons = document.querySelectorAll(".buttons > *");
 for (let i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener('click', function (e) {
         if (pScore !== 0 && cScore !== 0)   return;
+        let playerWins = playRound(playButtons[i].getAttribute('id'), getComputerChoice());
+        if (playerWins === 1)   pScore += 1;
+        if (playerWins === -1)  cScore += 1;
+        playerScore.textContent = pScore;
+        computerScore.textContent = cScore;
     });
 }
 // on click, get choice for computer and play round with the two choices
