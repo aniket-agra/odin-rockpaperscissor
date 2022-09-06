@@ -1,8 +1,9 @@
 * {
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,6 +20,16 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
+}
+
+#start {
+    margin: 4px auto;
+}
+
+.buttons {
+    display: flex;
+    margin: 4px auto;
+    align-items: center;
 }
 
 .scores {
