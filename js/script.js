@@ -23,20 +23,20 @@ function playRound(playerSelection, computerSelection) {
     computerSelection = capitalize(lowerComputerSelection);
     // if both equal return draw
     if (lowerPlayerSelection === lowerComputerSelection)
-        return `You Draw! ${playerSelection} draws with ${computerSelection}`;
+        return 0;
     // else check if player loses or wins
         // for each choice of player, player either loses or wins
     else {
         if (lowerPlayerSelection === "rock" && lowerComputerSelection === "paper")
-            return `You Lose! ${playerSelection} loses over ${computerSelection}`;
+            return -1;
         if (lowerPlayerSelection === "paper" && lowerComputerSelection === "scissors")
-            return `You Lose! ${playerSelection} loses over ${computerSelection}`;    
+            return -1;    
         if ((lowerPlayerSelection === "scissors" || lowerPlayerSelection === "scissor") && 
             lowerComputerSelection === "rock")
-            return `You Lose! ${playerSelection} loses over ${computerSelection}`;    
+            return -1;    
     }
     // return result
-    return `You Win! ${playerSelection} wins over ${computerSelection}`;
+    return 1;
 }
 
 function game(numGames = 5) {
