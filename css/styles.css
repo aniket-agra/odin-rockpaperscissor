@@ -1,0 +1,28 @@
+* {
+    border: 2px solid red;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.scores {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
