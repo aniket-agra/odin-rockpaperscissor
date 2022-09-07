@@ -92,19 +92,19 @@ for (let i = 0; i < playButtons.length; i++) {
         // on click, get choice for computer and play round with the two choices
         let playerChoice = playButtons[i].getAttribute('id');
         let computerChoice = getComputerChoice();
-        console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}!`);
+        
         let playerWins = playRound(playerChoice, computerChoice);
         // increment score based on result 
         if (playerWins === 1)   {
-            console.log("You win!");
+            alert(`You chose ${capitalize(playerChoice)}. Computer chose ${computerChoice}. You win!`);
             pScore += 1;
         }
         else if (playerWins === -1)  {
-            console.log("Computer Wins!")
+            alert(`You chose ${capitalize(playerChoice)}. Computer chose ${computerChoice}. Computer wins!`);
             cScore += 1;
         }
         else 
-            console.log("It's a draw!");
+            alert(`You chose ${capitalize(playerChoice)}. Computer chose ${computerChoice}. It's a draw!`);
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
     });
