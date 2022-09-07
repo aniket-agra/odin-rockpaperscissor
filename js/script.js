@@ -75,10 +75,12 @@ const playerScore = document.querySelector("#player .score");
 const computerScore = document.querySelector("#computer .score");
 let pScore;
 let cScore;
+let started = false;
 startButton.addEventListener('click', function (e) {
     // on click - set scores of player and computer to zero - makes start a reset button
     pScore = 0;
     cScore = 0;
+    started = true;
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
 });
@@ -86,13 +88,25 @@ startButton.addEventListener('click', function (e) {
 const playButtons = document.querySelectorAll(".buttons > *");
 for (let i = 0; i < playButtons.length; i++) {
     playButtons[i].addEventListener('click', function (e) {
-        if (pScore !== 0 && cScore !== 0)   return;
-        let playerWins = playRound(playButtons[i].getAttribute('id'), getComputerChoice());
-        if (playerWins === 1)   pScore += 1;
-        if (playerWins === -1)  cScore += 1;
+        if (!started)   return;
+        // on click, get choice for computer and play round with the two choices
+        let playerChoice = playButtons[i].getAttribute('id');
+        let computerChoice = getComputerChoice();
+        console.log(`You chose ${playerChoice}. Computer chose ${computerChoice}!`);
+        let playerWins = playRound(playerChoice, computerChoice);
+        // increment score based on result 
+        if (playerWins === 1)   {
+            console.log("You win!");
+            pScore += 1;
+        }
+        else if (playerWins === -1)  {
+            console.log("Computer Wins!")
+            cScore += 1;
+        }
+        else 
+            console.log("It's a draw!");
         playerScore.textContent = pScore;
         computerScore.textContent = cScore;
     });
 }
-// on click, get choice for computer and play round with the two choices
-// increment score based on result 
+
