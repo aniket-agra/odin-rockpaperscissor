@@ -52,6 +52,7 @@ button {
     padding: 6px 16px;
     border: 2px solid cornflowerblue;
     border-radius: 6px;
+    transition: all 0.07s;
     /* box-shadow: 4px 4px 10px 4px cornflowerblue; */
 }
 

@@ -109,3 +109,13 @@ for (let i = 0; i < playButtons.length; i++) {
         computerScore.textContent = cScore;
     });
 }
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach(function (button) {
+    button.addEventListener('mouseover', function (e) {
+        button.style.scale = "1.05";
+    });
+    button.addEventListener('mouseout', function (e) {
+        button.style.scale = "1";
+    });
+});
