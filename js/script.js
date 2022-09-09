@@ -109,4 +109,3 @@ for (let i = 0; i < playButtons.length; i++) {
         computerScore.textContent = cScore;
     });
 }
-
